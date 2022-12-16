@@ -14,6 +14,9 @@ const Template: ComponentStory<typeof DropdownMenu> = (args) => (
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  text: "DropdownMenu",
-  url: "https://www.google.com/",
+  menuItems: {
+    item: "test item",
+    url: "https://www.google.com/",
+  },
+  menuLabel: "Button",
 };
