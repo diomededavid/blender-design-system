@@ -3,34 +3,39 @@ import React from "react";
 // href for link
 // text description of link
 
-interface DropdownMenuProps {
-  menuLabel: string;
-  menuItems: {
-    item: string;
-    url: string;
-  };
+interface MenuItem {
+  label: string;
+  url: string;
+  subitems?: MenuItem[];
 }
 
-export const DropdownMenu = ({
-  menuLabel,
-  menuItems: { item, url },
-}: DropdownMenuProps) => {
+interface Props {
+  items: MenuItem[];
+}
+
+const DropdownMenu = (props: Props) => {
   return (
     <div className="dropdown">
-      <label tabIndex={0} className="m-1 btn">
-        {menuLabel}
-      </label>
-      <ul
-        tabIndex={0}
-        className="p-2 shadow dropdown-content menu bg-base-100 rounded-box w-52"
-      >
-        <li>
-          <a href={url}>{item}</a>
+      {props.items.map((item) => (
+        <li className="flex flex-row">
+          <label tabIndex={0} className="btn m-1">
+            {item.label}
+          </label>
+          {item.subitems && (
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              {item.subitems.map((subitem) => (
+                <li>
+                  <a href={subitem.url}>{subitem.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
-        <li>
-          <a>{item}</a>
-        </li>
-      </ul>
+      ))}
     </div>
   );
 };
+export default DropdownMenu;
