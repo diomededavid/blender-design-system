@@ -15,6 +15,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: "Button",
   color: "primary",
+  handleClick: () => console.log("You clicked on the pink circle!"),
 };
 
 export const Large = Template.bind({});

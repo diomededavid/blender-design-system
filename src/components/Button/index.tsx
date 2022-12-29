@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 
 export interface ButtonProps {
@@ -13,10 +14,11 @@ export interface ButtonProps {
     | "primary"
     | "secondary"
     | "warning";
+
   /**
-   * How large should the button be?
+   * ID of component
    */
-  size?: "xs" | "sm" | "lg";
+  id?: string;
 
   /**
    * Outline button
@@ -35,18 +37,23 @@ export interface ButtonProps {
   /**
    * Optional click handler
    */
-  handleClick?: onClick? : React.MouseEventHandler ;
+  handleClick?: () => void;
+
+  /**
+   * How large should the button be
+   */
+  size?: "xs" | "sm" | "lg";
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = (props: ButtonProps) => {
-  const { size, color, handleClick, label, outline, wide } = props;
+  const { size, color, handleClick, id, label, outline, wide } = props;
 
   return (
     <button
-      aria-disabled={color === "disabled" ? "true" : "false"}
+      aria-disabled={color === "disabled" && "true"}
       className={classNames(
         "btn",
         { [`btn-${color}`]: true },
@@ -54,6 +61,7 @@ export const Button = (props: ButtonProps) => {
         outline ? "btn-outline" : "",
         wide ? "btn-wide" : "",
       )}
+      id={id}
       onClick={handleClick}
     >
       {label}
