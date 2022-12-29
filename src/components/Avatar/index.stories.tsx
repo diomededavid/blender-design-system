@@ -1,6 +1,6 @@
-import {ComponentStory, ComponentMeta} from "@storybook/react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import {Avatar} from "./index";
+import { Avatar } from "./index";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -8,7 +8,7 @@ export default {
   component: Avatar,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    size: {control: "select"},
+    size: { control: "select" },
   },
 } as ComponentMeta<typeof Avatar>;
 
@@ -25,21 +25,18 @@ Small.args = {
 
 export const Medium = Template.bind({});
 Medium.args = {
+  ...Small.args,
   size: "w-12",
-  imgUrl: "https://robohash.org/bob",
-  altDesc: "Robot",
 };
 
 export const Large = Template.bind({});
 Large.args = {
+  ...Small.args,
   size: "w-16",
-  imgUrl: "https://robohash.org/bob",
-  altDesc: "Robot",
 };
 
 export const XLarge = Template.bind({});
 XLarge.args = {
+  ...Small.args,
   size: "w-24",
-  imgUrl: "https://robohash.org/bob",
-  altDesc: "Robot",
 };
