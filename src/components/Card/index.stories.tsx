@@ -1,6 +1,6 @@
-import {ComponentStory, ComponentMeta} from "@storybook/react";
-import {Card} from "./index";
-import {Button} from "../Button/";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Card } from "./index";
+import { Button } from "../Button/";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -10,13 +10,13 @@ export default {
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const Default = () => <Card />;
+export const Default = Template.bind({});
 
 export const CardActions = () => (
   <Card>
-      <h2>Heading</h2>
-      <h2 className="card-title">Card title!</h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-    <Button label="label" color="btn-primary" />
+    <h2>Heading</h2>
+    <h2 className="card-title">Card title!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <Button label="label" color="primary" />
   </Card>
 );

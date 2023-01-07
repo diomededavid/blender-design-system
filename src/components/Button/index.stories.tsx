@@ -1,11 +1,15 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Button from ".";
+import { Button } from "./";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Atoms/Button",
   component: Button,
+  argTypes: {
+    color: { control: "select" },
+    size: { control: "select" },
+  },
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

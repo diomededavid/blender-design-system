@@ -1,20 +1,13 @@
-import React from "react";
 import classNames from "classnames";
 
 export interface ButtonProps {
+  active?: boolean;
   /**
-   * What background color to use
+   * Optional. Sets color What background color to use
    */
-  color?:
-    | "accent"
-    | "disabled"
-    | "error"
-    | "ghost"
-    | "info"
-    | "primary"
-    | "secondary"
-    | "warning";
+  color?: "accent" | "disabled" | "primary" | "secondary" | "ghost" | "link";
 
+  colorState?: "info" | "error" | "success" | "warning";
   /**
    * ID of component
    */
@@ -24,6 +17,11 @@ export interface ButtonProps {
    * Outline button
    */
   outline?: boolean;
+
+  /**
+   * Optional. Specifies the type of button.
+   */
+  buttonType?: "button" | "reset" | "submit";
 
   /**
    * Wide button
@@ -40,7 +38,7 @@ export interface ButtonProps {
   handleClick?: () => void;
 
   /**
-   * How large should the button be
+   * Optional.  Size of button
    */
   size?: "xs" | "sm" | "lg";
 }
@@ -49,20 +47,32 @@ export interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button = (props: ButtonProps) => {
-  const { size, color, handleClick, id, label, outline, wide } = props;
+  const {
+    active,
+    color,
+    handleClick,
+    id,
+    label,
+    outline,
+    size,
+    buttonType,
+    wide,
+  } = props;
 
   return (
     <button
-      aria-disabled={color === "disabled" && "true"}
       className={classNames(
         "btn",
+        active && "btn-active",
         { [`btn-${color}`]: true },
         { [`btn-${size}`]: true },
-        outline ? "btn-outline" : "",
-        wide ? "btn-wide" : "",
+        outline && "btn-outline",
+        wide && "btn-wide",
       )}
+      aria-disabled={color === "disabled" && "true"}
       id={id}
       onClick={handleClick}
+      type={buttonType}
     >
       {label}
     </button>
