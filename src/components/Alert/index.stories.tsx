@@ -18,24 +18,24 @@ const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args} />;
 export const Info = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Info.args = {
-    color: "alert-info",
+    color: "info",
     title: "Info",
 };
 
 export const Success = Template.bind({});
 Success.args = {
-    color: "alert-success",
+    color: "success",
     title: "Success",
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-    color: "alert-warning",
+    color: "warning",
     title: "Warning",
 };
 
 export const Error = Template.bind({});
 Error.args = {
-    color: "alert-error",
+    color: "error",
     title: "Error",
 };
