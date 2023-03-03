@@ -8,6 +8,7 @@ export interface ButtonProps {
   color?: "accent" | "disabled" | "primary" | "secondary" | "ghost" | "link";
 
   colorState?: "info" | "error" | "success" | "warning";
+  
   /**
    * ID of component
    */
